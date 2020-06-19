@@ -1,0 +1,17 @@
+{
+  "name": "websir-mysql",
+  "version": "1.0.1",
+  "description": "conver mysql columns for fast coding in vscode",
+  "main": "index.js",
+  "bin": {
+    "websir-mysql": "./index.js"
+  },
+  "keywords": [],
+  "author": "websir",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "debug": "^4.1.1",
+    "mysql": "^2.18.1"
+  }
+}
