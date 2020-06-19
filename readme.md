@@ -1,6 +1,5 @@
 ## websir-mysql 是什么？
 
-![avatar](./vue.gif)
 用于根据指定的 mysql 数据库接口 生成：
 
 - JSON
