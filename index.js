@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 let debug = require("debug")("websir-mysql");
 debug.enabled = true;
 const mysql = require("mysql");
@@ -14,7 +16,9 @@ let websirConfig = {
 try {
     websirConfig = require(path.resolve(process.cwd(), "websir.config.js"));
 } catch (err) {
-    debug("没有找到配置文件!,请在根目录创建websir.config.js");
+    debug("没有找到配置文件!,将自动在根目录创建websir.config.js");
+    fs.copyFileSync(path.resolve("./node_modules/websir-mysql/websir.config.js"), "./websir.config.js");
+    debug("创建完成！请打开 websir.config.js 进行配置！")
     process.exit(0);
 }
 
@@ -25,6 +29,8 @@ try {
         function (error, results, fields) {
             if (error) throw error;
             getAllTable(results);
+            connection.end();
+            // process.exit(0)
         }
     );
     connection.on("error", function (err) {
