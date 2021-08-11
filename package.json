@@ -1,6 +1,6 @@
 {
   "name": "websir-mysql",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "mysql columns_name/table_name convert to .code_snippets .json .d.ts",
   "main": "index.js",
   "bin": {

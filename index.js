@@ -46,7 +46,14 @@ var tableCommitDict = {}; //表名备注字典
 function getAllTable(cols) {
   cols.map((item) => {
     tableCommitDict[item.TABLE_NAME] = item.TABLE_COMMENT;
-    var tableName = camelCase(item.TABLE_NAME);
+    let tbname = item.TABLE_NAME;
+    if (websirConfig.parseTableNameBefore) {
+      tbname = websirConfig.parseTableNameBefore(tbname);
+    }
+    var tableName = camelCase(tbname);
+    if (websirConfig.arseTableNameAfter) {
+      tableName = websirConfig.arseTableNameAfter(tableName);
+    }
     commentDict[tableName] = commentDict[tableName] || {};
     dict[tableName] = dict[tableName] || {};
     var colName = camelCase(item.COLUMN_NAME);

@@ -24,7 +24,15 @@ module.exports = {
     port: "<端口>",
     user: "<用户名>",
     password: "<密码>",
-    database: "<库名>"
+    database: "<库名>",
+    parseTableNameBefore(tableName) {
+      //处理表名（默认驼峰 根据 下划线 分割）前的钩子 提供重命名表名机会
+      return tableName.split("_").slice(1).join("_");
+    },
+    arseTableNameAfter(tableName) {
+       //处理表名 （默认驼峰 根据 下划线 分割） 后的钩子 提供重命名表名机会
+      return tableName;
+    },
   }
 }
 

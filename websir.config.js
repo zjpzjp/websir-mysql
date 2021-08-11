@@ -4,6 +4,12 @@ module.exports = {
     port: "3306",
     user: "root",
     password: "root",
-    database: "qqs",
+    database: "serve",
+  },
+  parseTableNameBefore(tableName) {
+    return tableName.split("_").slice(1).join("_");
+  },
+  arseTableNameAfter(tableName) {
+    return tableName;
   },
 };
